@@ -2,13 +2,13 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
 import { changeFoo } from '../store/actionCreaters/action'
 import { useDispatch, useSelector } from 'react-redux'
-import { asyncContents } from '../store/actionCreaters/asyncAction'
 import Parts from '../components/parts/data'
 
 export default function Home() {
+
+
   const dispatch = useDispatch();
-  const value = useSelector(state => state.foo)
-  console.log(value)
+  const foo = useSelector(state => state.foo)
 
   return (
     <div className={styles.container}>
@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title} onClick={() => dispatch({type: "CHANGE_FOO"})}>
+        <h1 className={styles.title} onClick={() => dispatch(changeFoo())}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 

@@ -42,7 +42,8 @@ import { useMemo } from 'react'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { initialState, reducer } from './reducers/reducer'
-import { createLogger } from 'redux-logger';
+import { createLogger } from 'redux-logger'
+import thunk from 'redux-thunk'
 
 let store
 
@@ -56,7 +57,7 @@ function initStore(preloadedState = initialState) {
   return createStore(
     reducer,
     preloadedState,
-    composeWithDevTools(applyMiddleware(logger))
+    composeWithDevTools(applyMiddleware(logger, thunk))
   )
 }
 
