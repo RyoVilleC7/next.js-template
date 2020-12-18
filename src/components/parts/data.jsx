@@ -5,21 +5,18 @@ import { changeFoo } from '../../store/actionCreaters/action'
 function Parts(props) {
   return (
     <div>
-      <span>{props.foo}</span>
-      <button onClick={props.changeFoo}>change foo</button>
+      <button>change foo</button>
     </div>
   )
 }
 
 const mapStateToProps = state => {
   return {
-    foo: state.reducer.foo
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeFoo: () => dispatch(changeFoo())
 }};
 
 export default connect(mapStateToProps,mapDispatchToProps)(Parts);

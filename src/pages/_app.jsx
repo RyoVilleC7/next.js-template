@@ -3,12 +3,10 @@ import { Provider } from 'react-redux'
 import { store } from '../store/store'
 import { useEffect } from 'react'
 import { clientSide_createStore } from '../store/store'
+import { useStore } from '../store/store'
 
 function MyApp({ Component, pageProps }) {
-
-  useEffect(() => {
-    clientSide_createStore()
-  })
+  const store = useStore(pageProps.initialReduxState)
 
   return (
     <Provider store={store}>
